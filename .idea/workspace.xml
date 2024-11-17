@@ -5,7 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad3b8ea8-9ba4-4b04-9d3a-7e110efeb912" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/apple-black-100.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/facebook-96.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/google-96.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/app-build-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/.next/app-build-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/build-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/.next/build-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/build/chunks/[root of the server]__f3ed2b._.js" beforeDir="false" afterPath="$PROJECT_DIR$/.next/build/chunks/[root of the server]__f3ed2b._.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/build/chunks/[root of the server]__f3ed2b._.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/.next/build/chunks/[root of the server]__f3ed2b._.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/cache/images/3RVGD9c_EGGEVj5GHxS-k8Xu84QILNMl_DqahiO7P3c/60.1731818330618.I7DoR4xwZvzeKbTQvbjFdUKzRjO0tKBU2tNvIy6hRuw.Vy8iMTJiYzktMTkzMzdiMmNlZDQi.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/cache/images/SUfvXrctgc5Yl3yM_cwo0WLhUpvbIY9NHTQr3S50zvU/60.1731818330162.F9SAbXQR3puE6tGIGB00H2b-TogNFU0k7oNbatQJJ-U.Vy8iMjVhMTctMTkzMzc4MWYxODYi.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/.next/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/server/app-paths-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/app-paths-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/server/app/_not-found/page_client-reference-manifest.js" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/app/_not-found/page_client-reference-manifest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/server/app/page/app-build-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/app/page/app-build-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/server/app/page_client-reference-manifest.js" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/app/page_client-reference-manifest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/server/chunks/ssr/[root of the server]__38e946._.js" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/chunks/ssr/[root of the server]__38e946._.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/server/chunks/ssr/[root of the server]__38e946._.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/chunks/ssr/[root of the server]__38e946._.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/server/chunks/ssr/[root of the server]__c2f68d._.js" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/chunks/ssr/[root of the server]__c2f68d._.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/server/chunks/ssr/[root of the server]__c2f68d._.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/chunks/ssr/[root of the server]__c2f68d._.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/server/chunks/ssr/_da8761._.js" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/chunks/ssr/_da8761._.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/server/chunks/ssr/_da8761._.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/chunks/ssr/_da8761._.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/server/chunks/ssr/_e1c568._.js" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/chunks/ssr/_e1c568._.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/server/chunks/ssr/_e1c568._.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/chunks/ssr/_e1c568._.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/server/chunks/ssr/src_app_896cde._.js" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/chunks/ssr/src_app_896cde._.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/server/chunks/ssr/src_app_896cde._.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/chunks/ssr/src_app_896cde._.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/server/chunks/ssr/src_app_c7d265._.css" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/chunks/ssr/src_app_c7d265._.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/server/chunks/ssr/src_app_c7d265._.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/chunks/ssr/src_app_c7d265._.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/server/chunks/ssr/src_app_globals_b52d8e.css" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/chunks/ssr/src_app_globals_b52d8e.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/server/chunks/ssr/src_app_globals_b52d8e.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/chunks/ssr/src_app_globals_b52d8e.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/server/middleware-build-manifest.js" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/middleware-build-manifest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/server/next-font-manifest.js" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/next-font-manifest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/server/next-font-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/next-font-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/static/chunks/src_app_1adcbc._.js" beforeDir="false" afterPath="$PROJECT_DIR$/.next/static/chunks/src_app_1adcbc._.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/static/chunks/src_app_1adcbc._.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/.next/static/chunks/src_app_1adcbc._.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/static/chunks/src_app_c7d265._.css" beforeDir="false" afterPath="$PROJECT_DIR$/.next/static/chunks/src_app_c7d265._.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/static/chunks/src_app_c7d265._.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/.next/static/chunks/src_app_c7d265._.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/static/chunks/src_app_globals_b52d8e.css" beforeDir="false" afterPath="$PROJECT_DIR$/.next/static/chunks/src_app_globals_b52d8e.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/static/chunks/src_app_globals_b52d8e.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/.next/static/chunks/src_app_globals_b52d8e.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/static/chunks/src_app_page_tsx_0cf6ee._.js" beforeDir="false" afterPath="$PROJECT_DIR$/.next/static/chunks/src_app_page_tsx_0cf6ee._.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/static/chunks/src_app_page_tsx_32efbb._.js" beforeDir="false" afterPath="$PROJECT_DIR$/.next/static/chunks/src_app_page_tsx_32efbb._.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/static/chunks/src_app_page_tsx_32efbb._.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/.next/static/chunks/src_app_page_tsx_32efbb._.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.next/trace" beforeDir="false" afterPath="$PROJECT_DIR$/.next/trace" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/signup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/signup/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,20 +62,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "history": [
-    {
-      "searchQuery": "morninglight",
-      "state": "OPEN",
-      "assignee": "joydesigner"
-    },
-    {
-      "searchQuery": "morninglight-planner",
-      "state": "OPEN",
-      "assignee": "joydesigner"
-    }
-  ],
   "lastFilter": {
-    "searchQuery": "morninglight-planner",
     "state": "OPEN",
     "assignee": "joydesigner"
   }
@@ -40,42 +73,38 @@
     "accountId": "02d98c4a-2c1d-41c6-8f2d-c9e32c02ecd4"
   }
 }]]></component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
-}</component>
-  <component name="ProjectId" id="2ox5lEBJ2Pyp9rAvOFgJP2EXeZ6" />
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2oxpFjv2pNhHq9CiErJ6XqqaPcR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/xinzheng/WebstormProjects/morning-light-planner/src/app&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/xinzheng/WebstormProjects/morning-light-planner/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "develop",
+    "last_opened_file_path": "/Users/xinzheng/WebstormProjects/morning-light-planner/public/images",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Users/xinzheng/WebstormProjects/morning-light-planner/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/app" />
       <recent name="$PROJECT_DIR$/public/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/app" />
-      <recent name="$PROJECT_DIR$/src/app/pages" />
-      <recent name="$PROJECT_DIR$/src/app/styles" />
-      <recent name="$PROJECT_DIR$/public/images" />
-      <recent name="$PROJECT_DIR$/public/icons" />
+      <recent name="$PROJECT_DIR$/src/app/signup" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -89,29 +118,15 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="ad3b8ea8-9ba4-4b04-9d3a-7e110efeb912" name="Changes" comment="" />
-      <created>1731798534706</created>
+      <created>1731820980032</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1731798534706</updated>
-      <workItem from="1731798535774" duration="742000" />
-      <workItem from="1731799311906" duration="9065000" />
-      <workItem from="1731814426237" duration="4118000" />
-      <workItem from="1731819937801" duration="729000" />
+      <updated>1731820980032</updated>
+      <workItem from="1731820981064" duration="3955000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>

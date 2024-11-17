@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import {useEffect, useState} from "react";
-import Signup from './signup';
+import Index from './signup';
 
 export default function Home() {
   const [isSignupOpen, setIsSignupOpen] = useState(false);
@@ -40,7 +40,7 @@ export default function Home() {
             <h1 className="text-2xl font-bold">Morning Light Planner</h1>
           </div>
 
-          {/* Right Section: Login and Signup Buttons */}
+          {/* Right Section: Login and Index Buttons */}
           <div className="flex items-center gap-4">
             <button className="text-white hover:underline">Login</button>
             <button
@@ -53,17 +53,17 @@ export default function Home() {
         </header>
 
         {/* Hero Section */}
-        {/* Signup Modal */}
+        {/* Index Modal */}
         {isSignupOpen && (
             <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-              <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
+              <div className="bg-white rounded-lg shadow-sm p-6 w-full max-w-md">
                 <button
                     onClick={() => setIsSignupOpen(false)}
                     className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
                 >
                   &times;
                 </button>
-                <Signup />
+                <Index />
               </div>
             </div>
         )}

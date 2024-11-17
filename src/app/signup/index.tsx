@@ -1,8 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import Image from "next/image";
 
-export default function Signup() {
+export default function Index() {
     const [passwordVisible, setPasswordVisible] = useState(false);
 
     const togglePasswordVisibility = () => {
@@ -10,7 +11,7 @@ export default function Signup() {
     };
 
     return (
-        <div className="max-w-md mx-auto px-4 py-8 sm:px-6 lg:px-8 bg-white shadow-md rounded-lg">
+        <div className="max-w-md mx-auto px-4 py-8 sm:px-6 lg:px-8 bg-transparent shadow-md rounded-lg">
             <h1 className="text-2xl font-semibold text-gray-800 text-center">
                 Create an account
             </h1>
@@ -48,9 +49,11 @@ export default function Signup() {
                     </label>
                     <input
                         id="email"
+                        name="email"
                         type="email"
+                        autoComplete="email"
                         placeholder="Enter your email address"
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                        className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
                     />
                 </div>
 
@@ -67,7 +70,7 @@ export default function Signup() {
                             id="password"
                             type={passwordVisible ? 'text' : 'password'}
                             placeholder="Enter your password"
-                            className="block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm pr-10"
+                            className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
                         />
                         <button
                             type="button"
@@ -95,35 +98,35 @@ export default function Signup() {
                     .
                 </p>
 
-                {/* Signup Button */}
+                {/* Index Button */}
                 <button
                     type="submit"
-                    className="w-full bg-blue-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                    className="w-full bg-blue-600 text-white py-2 px-4 rounded-full shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                 >
                     Create an account
                 </button>
             </form>
 
-            {/* Social Signup */}
+            {/* Social Index */}
             <div className="mt-6">
                 <p className="text-center text-sm text-gray-500 mb-4">OR Continue with</p>
                 <div className="flex justify-center gap-4">
                     <button
-                        className="flex items-center gap-2 border border-gray-300 px-4 py-2 rounded-md shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-gray-300"
+                        className="flex w-36 text-black text-xs items-center gap-1 border border-gray-300 px-4 py-2 rounded-full shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-gray-300"
                     >
-                        <img src="/images/facebook-icon.svg" alt="Facebook" width={24} />
+                        <Image src="/images/facebook-96.svg" alt="Facebook" width={24} height={24} />
                         Facebook
                     </button>
                     <button
-                        className="flex items-center gap-2 border border-gray-300 px-4 py-2 rounded-md shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-gray-300"
+                        className="flex w-36 text-black text-xs items-center gap-1 border border-gray-300 px-4 py-2 rounded-full shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-gray-300"
                     >
-                        <img src="/images/google-icon.svg" alt="Google" width={24} />
+                        <Image src="/images/google-96.svg" alt="Google" width={24} height={24} />
                         Google
                     </button>
                     <button
-                        className="flex items-center gap-2 border border-gray-300 px-4 py-2 rounded-md shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-gray-300"
+                        className="flex w-36 text-black text-xs items-center gap-1 border border-gray-300 px-4 py-2 rounded-full shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-gray-300"
                     >
-                        <img src="/images/apple-icon.svg" alt="Apple" width={24} />
+                        <Image src="/images/apple-black-100.svg" alt="Apple" width={24} height={24} />
                         Apple
                     </button>
                 </div>
