@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad3b8ea8-9ba4-4b04-9d3a-7e110efeb912" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +15,31 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "history": [
+    {
+      "searchQuery": "morninglight",
+      "state": "OPEN",
+      "assignee": "joydesigner"
+    },
+    {
+      "searchQuery": "morninglight-planner",
+      "state": "OPEN",
+      "assignee": "joydesigner"
+    }
+  ],
+  "lastFilter": {
+    "searchQuery": "morninglight-planner",
+    "state": "OPEN",
+    "assignee": "joydesigner"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:joydesigner/morninglight-planner.git",
+    "accountId": "02d98c4a-2c1d-41c6-8f2d-c9e32c02ecd4"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -71,6 +96,7 @@
       <workItem from="1731798535774" duration="742000" />
       <workItem from="1731799311906" duration="9065000" />
       <workItem from="1731814426237" duration="4118000" />
+      <workItem from="1731819937801" duration="729000" />
     </task>
     <servers />
   </component>
