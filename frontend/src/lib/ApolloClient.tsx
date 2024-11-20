@@ -2,6 +2,13 @@ import { ApolloClient, InMemoryCache, HttpLink, NormalizedCacheObject } from "@a
 import { useMemo } from "react";
 import { onError } from "@apollo/client/link/error";
 
+const GRAPHQL_URI = process.env.NEXT_PUBLIC_GRAPHQL_URL || "http://localhost:4000/graphql";
+
+if (!process.env.NEXT_PUBLIC_GRAPHQL_URL && process.env.NODE_ENV === "production") {
+    console.warn("Warning: NEXT_PUBLIC_GRAPHQL_URL is not set in production!");
+}
+
+// Error handling for Apollo Client
 const errorLink = onError(({ graphQLErrors, networkError }) => {
     if (graphQLErrors) {
         graphQLErrors.forEach(({ message, locations, path }) => {
@@ -9,21 +16,38 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
         });
     }
     if (networkError) {
-        console.error(`[Network error]: ${networkError}`);
+        console.error(`[Network error]: ${networkError.message}`);
     }
+});
+
+// Cache configuration with type policies
+const cache = new InMemoryCache({
+    typePolicies: {
+        Query: {
+            fields: {
+                items: {
+                    keyArgs: false, // Combine paginated results into a single list
+                    merge(existing = [], incoming) {
+                        return [...existing, ...incoming];
+                    },
+                },
+            },
+        },
+    },
 });
 
 // Function to create a new Apollo Client instance
 function createApolloClient(): ApolloClient<NormalizedCacheObject> {
     return new ApolloClient({
-        ssrMode: typeof window === "undefined", // Enable support for SSR
+        ssrMode: typeof window === "undefined", // Enable SSR support
         link: errorLink.concat(
             new HttpLink({
-                uri: process.env.NEXT_PUBLIC_GRAPHQL_URL || "http://localhost:4000/graphql",
+                uri: GRAPHQL_URI,
                 credentials: "same-origin",
             })
         ),
-        cache: new InMemoryCache(),
+        cache,
+        connectToDevTools: process.env.NODE_ENV === "development",
     });
 }
 
@@ -53,3 +77,12 @@ export function useApollo(initialState: NormalizedCacheObject | null): ApolloCli
     const store = useMemo(() => initializeApollo(initialState), [initialState]);
     return store;
 }
+
+// import { ApolloClient, InMemoryCache } from "@apollo/client";
+//
+// const client = new ApolloClient({
+//     uri: process.env.NEXT_PUBLIC_GRAPHQL_URL || "http://localhost:4000/graphql",
+//     cache: new InMemoryCache(),
+// });
+//
+// export default client;

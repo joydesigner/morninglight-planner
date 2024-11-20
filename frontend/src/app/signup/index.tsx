@@ -1,15 +1,14 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import { gql, useMutation } from "@apollo/client";
-import { useState } from 'react';
-import Image from "next/image";
+import { useState } from "react";
 
 const REGISTER_USER = gql`
-    mutation RegisterUser($email: String!, $password: String!, $profileName: String!) {
-        register(email: $email, password: $password, profileName: $profileName) {
-            email
+    mutation RegisterUser($profileName: String!, $email: String!, $password: String!) {
+        registerUser(input: { profileName: $profileName, email: $email, password: $password }) {
+            id
             profileName
+            email
         }
     }
 `;
@@ -38,10 +37,24 @@ const SignupForm = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        const { email, password, profileName } = formData;
+
+        // Basic validation
+        if (!email || !password || !profileName) {
+            alert("Please fill out all fields!");
+            return;
+        }
+
+        if (password.length < 8) {
+            alert("Password must be at least 8 characters long.");
+            return;
+        }
+
         try {
             const response = await registerUser({ variables: formData });
             console.log("Account created successfully", response);
-            setFormData({ email: '', password: '', profileName: '' });
+            alert("Account created successfully!");
+            setFormData({ email: '', password: '', profileName: '' }); // Clear form
         } catch (err) {
             console.error(err);
         }
@@ -60,12 +73,8 @@ const SignupForm = () => {
             </p>
 
             <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
-                {/* Profile Name */}
                 <div>
-                    <label
-                        htmlFor="profileName"
-                        className="block text-sm font-medium text-gray-700"
-                    >
+                    <label htmlFor="profileName" className="block text-sm font-medium text-gray-700">
                         What should we call you?
                     </label>
                     <input
@@ -78,12 +87,8 @@ const SignupForm = () => {
                     />
                 </div>
 
-                {/* Email */}
                 <div>
-                    <label
-                        htmlFor="email"
-                        className="block text-sm font-medium text-gray-700"
-                    >
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                         What's your email?
                     </label>
                     <input
@@ -97,12 +102,8 @@ const SignupForm = () => {
                     />
                 </div>
 
-                {/* Password */}
                 <div>
-                    <label
-                        htmlFor="password"
-                        className="block text-sm font-medium text-gray-700"
-                    >
+                    <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                         Create a password
                     </label>
                     <div className="mt-1 relative">
@@ -119,6 +120,7 @@ const SignupForm = () => {
                             onClick={togglePasswordVisibility}
                             className="absolute inset-y-0 right-0 px-3 flex items-center text-gray-500 hover:text-gray-800"
                             aria-label="Toggle password visibility"
+                            aria-pressed={passwordVisible}
                         >
                             {passwordVisible ? 'Hide' : 'Show'}
                         </button>
@@ -128,23 +130,32 @@ const SignupForm = () => {
                     </p>
                 </div>
 
-                {/* Submit Button */}
                 <button
                     type="submit"
                     className="w-full bg-yellow-600 text-white py-2 px-4 rounded-full shadow-sm hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
                 >
                     {loading ? "Creating account..." : "Create an account"}
                 </button>
+
                 {error && (
                     <p className="text-sm text-red-500 mt-2">
                         {error.message}
                     </p>
                 )}
+
+                {data && (
+                    <p className="text-sm text-green-500 mt-2">
+                        Account created successfully! Welcome, {data.registerUser.profileName}.
+                    </p>
+                )}
             </form>
+                 {error && (
+                <pre className="text-sm text-red-500 mt-2">
+                    {JSON.stringify(error, null, 2)}
+                  </pre>
+            )}
         </div>
     );
 };
 
-const DynamicSignupForm = dynamic(() => Promise.resolve(SignupForm), { ssr: false });
-
-export default DynamicSignupForm;
+export default SignupForm;
