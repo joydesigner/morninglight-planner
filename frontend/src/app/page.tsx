@@ -1,8 +1,15 @@
 'use client';
 
 import Image from "next/image";
+import Head from "next/head";
+import Modal from "./components/Modal";
 import {useEffect, useState} from "react";
-import Index from './signup';
+import dynamic from "next/dynamic";
+
+const Index = dynamic(() => import('./signup'), {
+  loading: () => <p>Loading...</p>,
+  ssr: false
+});
 
 export default function Home() {
   const [isSignupOpen, setIsSignupOpen] = useState(false);
@@ -15,17 +22,20 @@ export default function Home() {
       }
     };
 
-    if (isSignupOpen) {
-      window.addEventListener('keydown', handleKeyDown);
-    }
+    window.addEventListener('keydown', handleKeyDown);
 
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isSignupOpen])
 
   return (
+
       <div className="bg-gradient-to-b from-sky-400 via-sky-300 to-sky-500 text-white">
+        {/* SEO */}
+        <Head>
+            <title>Morning Light Planner</title>
+            <meta name="description" content="Morning Light Planner is your intelligent companion for daily productivity." />
+            <link rel="icon" href="/favicon.ico" />
+        </Head>
         {/* Header Section */}
         <header className="flex justify-between items-center p-6 sm:px-12">
           {/* Left Section: Logo and App Name */}
@@ -54,19 +64,27 @@ export default function Home() {
 
         {/* Hero Section */}
         {/* Index Modal */}
-        {isSignupOpen && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-              <div className="bg-white rounded-lg shadow-sm p-6 w-full max-w-md">
-                <button
-                    onClick={() => setIsSignupOpen(false)}
-                    className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
-                >
-                  &times;
-                </button>
-                <Index />
-              </div>
-            </div>
-        )}
+        {/*{isSignupOpen && (*/}
+        {/*    <div*/}
+        {/*        className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"*/}
+        {/*        role="dialog"*/}
+        {/*        aria-hidden={!isSignupOpen}*/}
+        {/*        aria-label="Signup Modal"*/}
+        {/*    >*/}
+        {/*      <div className="bg-white rounded-lg shadow-sm p-6 w-full max-w-md">*/}
+        {/*        <button*/}
+        {/*            onClick={() => setIsSignupOpen(false)}*/}
+        {/*            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"*/}
+        {/*        >*/}
+        {/*          &times;*/}
+        {/*        </button>*/}
+        {/*        <Index />*/}
+        {/*      </div>*/}
+        {/*    </div>*/}
+        {/*)}*/}
+        <Modal isOpen={isSignupOpen} onClose={() => setIsSignupOpen(false)}>
+          <Index />
+        </Modal>
         <section
             className="flex flex-col-reverse sm:flex-row items-center sm:items-start justify-between px-6 sm:px-12 py-16 sm:py-20 gap-12">
           <div className="text-center sm:text-left max-w-md">
@@ -81,7 +99,7 @@ export default function Home() {
                   href="#"
                   className="bg-black text-white px-6 py-3 rounded-lg flex items-center gap-2"
               >
-                <Image src="images/apple-100.svg" alt="App Store" width={24} height={24}/>
+                <Image src="images/apple-100.svg" alt="App Store" width={24} height={24} />
                 Get on Appstore
               </a>
               <a

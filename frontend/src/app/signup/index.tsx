@@ -1,13 +1,52 @@
+
 'use client';
 
+import dynamic from 'next/dynamic';
+import { gql, useMutation } from "@apollo/client";
 import { useState } from 'react';
 import Image from "next/image";
 
-export default function Index() {
+const REGISTER_USER = gql`
+    mutation RegisterUser($email: String!, $password: String!, $profileName: String!) {
+        register(email: $email, password: $password, profileName: $profileName) {
+            email
+            profileName
+        }
+    }
+`;
+
+const SignupForm = ()=> {
     const [passwordVisible, setPasswordVisible] = useState(false);
+    const [formData, setFormData] = useState({
+        email: '',
+        password: '',
+        profileName: ''
+    });
+
+    const [registerUser, { data, loading, error }] = useMutation(REGISTER_USER);
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { id, value } = e.target;
+        setFormData({
+            ...formData,
+            [id]: value
+        });
+    };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        try {
+            const response = await registerUser({ variables: formData });
+            console.log("Account created successfully", response);
+            setFormData({email: '', password: '', profileName: ''});
+            // Handle successful registration (e.g., redirect to login page)
+        } catch (err) {
+            console.error(err);
+        }
     };
 
     return (
@@ -35,7 +74,9 @@ export default function Index() {
                         id="profileName"
                         type="text"
                         placeholder="Enter your profile name"
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                        value={formData.profileName}
+                        onChange={handleChange}
+                        className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-orange-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm/6"
                     />
                 </div>
 
@@ -53,7 +94,9 @@ export default function Index() {
                         type="email"
                         autoComplete="email"
                         placeholder="Enter your email address"
-                        className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-orange-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm/6"
                     />
                 </div>
 
@@ -70,7 +113,9 @@ export default function Index() {
                             id="password"
                             type={passwordVisible ? 'text' : 'password'}
                             placeholder="Enter your password"
-                            className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+                            value={formData.password}
+                            onChange={handleChange}
+                            className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-orange-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm/6"
                         />
                         <button
                             type="button"
@@ -101,7 +146,7 @@ export default function Index() {
                 {/* Index Button */}
                 <button
                     type="submit"
-                    className="w-full bg-blue-600 text-white py-2 px-4 rounded-full shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                    className="w-full bg-yellow-600 text-white py-2 px-4 rounded-full shadow-sm hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
                 >
                     Create an account
                 </button>
@@ -112,19 +157,19 @@ export default function Index() {
                 <p className="text-center text-sm text-gray-500 mb-4">OR Continue with</p>
                 <div className="flex justify-center gap-4">
                     <button
-                        className="flex w-36 text-black text-xs items-center gap-1 border border-gray-300 px-4 py-2 rounded-full shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-gray-300"
+                        className="flex w-36 text-black text-xs items-center gap-1 border border-gray-300 px-4 py-2 rounded-full shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-orange-300"
                     >
                         <Image src="/images/facebook-96.svg" alt="Facebook" width={24} height={24} />
                         Facebook
                     </button>
                     <button
-                        className="flex w-36 text-black text-xs items-center gap-1 border border-gray-300 px-4 py-2 rounded-full shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-gray-300"
+                        className="flex w-36 text-black text-xs items-center gap-1 border border-gray-300 px-4 py-2 rounded-full shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-orange-300"
                     >
                         <Image src="/images/google-96.svg" alt="Google" width={24} height={24} />
                         Google
                     </button>
                     <button
-                        className="flex w-36 text-black text-xs items-center gap-1 border border-gray-300 px-4 py-2 rounded-full shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-gray-300"
+                        className="flex w-36 text-black text-xs items-center gap-1 border border-gray-300 px-4 py-2 rounded-full shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-orange-300"
                     >
                         <Image src="/images/apple-black-100.svg" alt="Apple" width={24} height={24} />
                         Apple
@@ -133,4 +178,6 @@ export default function Index() {
             </div>
         </div>
     );
-}
+};
+const DynamicSignupFrom = dynamic(() => Promise.resolve(SignupForm), { ssr: false });
+export default DynamicSignupFrom;
