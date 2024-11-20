@@ -6,7 +6,7 @@ import Modal from "./components/Modal";
 import {useEffect, useState} from "react";
 import dynamic from "next/dynamic";
 
-const Index = dynamic(() => import('./signup'), {
+const Signup = dynamic(() => import('./signup'), {
   loading: () => <p>Loading...</p>,
   ssr: false
 });
@@ -28,7 +28,6 @@ export default function Home() {
   }, [isSignupOpen])
 
   return (
-
       <div className="bg-gradient-to-b from-sky-400 via-sky-300 to-sky-500 text-white">
         {/* SEO */}
         <Head>
@@ -62,28 +61,8 @@ export default function Home() {
           </div>
         </header>
 
-        {/* Hero Section */}
-        {/* Index Modal */}
-        {/*{isSignupOpen && (*/}
-        {/*    <div*/}
-        {/*        className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"*/}
-        {/*        role="dialog"*/}
-        {/*        aria-hidden={!isSignupOpen}*/}
-        {/*        aria-label="Signup Modal"*/}
-        {/*    >*/}
-        {/*      <div className="bg-white rounded-lg shadow-sm p-6 w-full max-w-md">*/}
-        {/*        <button*/}
-        {/*            onClick={() => setIsSignupOpen(false)}*/}
-        {/*            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"*/}
-        {/*        >*/}
-        {/*          &times;*/}
-        {/*        </button>*/}
-        {/*        <Index />*/}
-        {/*      </div>*/}
-        {/*    </div>*/}
-        {/*)}*/}
         <Modal isOpen={isSignupOpen} onClose={() => setIsSignupOpen(false)}>
-          <Index />
+          <Signup />
         </Modal>
         <section
             className="flex flex-col-reverse sm:flex-row items-center sm:items-start justify-between px-6 sm:px-12 py-16 sm:py-20 gap-12">

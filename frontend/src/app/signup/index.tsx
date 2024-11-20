@@ -1,4 +1,3 @@
-
 'use client';
 
 import dynamic from 'next/dynamic';
@@ -15,7 +14,7 @@ const REGISTER_USER = gql`
     }
 `;
 
-const SignupForm = ()=> {
+const SignupForm = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [formData, setFormData] = useState({
         email: '',
@@ -42,8 +41,7 @@ const SignupForm = ()=> {
         try {
             const response = await registerUser({ variables: formData });
             console.log("Account created successfully", response);
-            setFormData({email: '', password: '', profileName: ''});
-            // Handle successful registration (e.g., redirect to login page)
+            setFormData({ email: '', password: '', profileName: '' });
         } catch (err) {
             console.error(err);
         }
@@ -61,7 +59,7 @@ const SignupForm = ()=> {
                 </a>
             </p>
 
-            <form className="mt-6 space-y-4">
+            <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
                 {/* Profile Name */}
                 <div>
                     <label
@@ -90,7 +88,6 @@ const SignupForm = ()=> {
                     </label>
                     <input
                         id="email"
-                        name="email"
                         type="email"
                         autoComplete="email"
                         placeholder="Enter your email address"
@@ -121,6 +118,7 @@ const SignupForm = ()=> {
                             type="button"
                             onClick={togglePasswordVisibility}
                             className="absolute inset-y-0 right-0 px-3 flex items-center text-gray-500 hover:text-gray-800"
+                            aria-label="Toggle password visibility"
                         >
                             {passwordVisible ? 'Hide' : 'Show'}
                         </button>
@@ -130,54 +128,23 @@ const SignupForm = ()=> {
                     </p>
                 </div>
 
-                {/* Terms and Policy */}
-                <p className="text-xs text-gray-500 text-center mt-4">
-                    By creating an account, you agree to the{' '}
-                    <a href="/terms" className="text-blue-600 hover:underline">
-                        Terms of use
-                    </a>{' '}
-                    and{' '}
-                    <a href="/privacy" className="text-blue-600 hover:underline">
-                        Privacy Policy
-                    </a>
-                    .
-                </p>
-
-                {/* Index Button */}
+                {/* Submit Button */}
                 <button
                     type="submit"
                     className="w-full bg-yellow-600 text-white py-2 px-4 rounded-full shadow-sm hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
                 >
-                    Create an account
+                    {loading ? "Creating account..." : "Create an account"}
                 </button>
+                {error && (
+                    <p className="text-sm text-red-500 mt-2">
+                        {error.message}
+                    </p>
+                )}
             </form>
-
-            {/* Social Index */}
-            <div className="mt-6">
-                <p className="text-center text-sm text-gray-500 mb-4">OR Continue with</p>
-                <div className="flex justify-center gap-4">
-                    <button
-                        className="flex w-36 text-black text-xs items-center gap-1 border border-gray-300 px-4 py-2 rounded-full shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-orange-300"
-                    >
-                        <Image src="/images/facebook-96.svg" alt="Facebook" width={24} height={24} />
-                        Facebook
-                    </button>
-                    <button
-                        className="flex w-36 text-black text-xs items-center gap-1 border border-gray-300 px-4 py-2 rounded-full shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-orange-300"
-                    >
-                        <Image src="/images/google-96.svg" alt="Google" width={24} height={24} />
-                        Google
-                    </button>
-                    <button
-                        className="flex w-36 text-black text-xs items-center gap-1 border border-gray-300 px-4 py-2 rounded-full shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-orange-300"
-                    >
-                        <Image src="/images/apple-black-100.svg" alt="Apple" width={24} height={24} />
-                        Apple
-                    </button>
-                </div>
-            </div>
         </div>
     );
 };
-const DynamicSignupFrom = dynamic(() => Promise.resolve(SignupForm), { ssr: false });
-export default DynamicSignupFrom;
+
+const DynamicSignupForm = dynamic(() => Promise.resolve(SignupForm), { ssr: false });
+
+export default DynamicSignupForm;
