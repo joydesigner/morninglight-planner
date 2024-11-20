@@ -12,10 +12,10 @@ const Signup = dynamic(() => import('./signup'), {
   ssr: false,
 });
 
-function SignupWithErrorBoundary() {
+function SignupWithErrorBoundary({onSuccess}: {onSuccess: () => void}) {
   return (
       <ErrorBoundary FallbackComponent={() => <p>Error loading Signup component</p>}>
-        <Signup />
+        <Signup onSuccess={onSuccess}/>
       </ErrorBoundary>
   );
 }
@@ -34,6 +34,10 @@ export default function Home() {
 
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
+
+  const handleSignupSuccess = () => {
+    setIsSignupOpen(false); // Close the modal on successful signup
+  };
 
   return (
       <div className="bg-gradient-to-b from-sky-400 via-sky-300 to-sky-500 text-white" >
@@ -70,7 +74,7 @@ export default function Home() {
         </header>
 
         <Modal isOpen={isSignupOpen} onClose={() => setIsSignupOpen(false)}>
-          <SignupWithErrorBoundary />
+          <SignupWithErrorBoundary onSuccess={handleSignupSuccess}/>
         </Modal>
 
         <section className="flex flex-col-reverse sm:flex-row items-center sm:items-start justify-between px-6 sm:px-12 py-16 sm:py-20 gap-12">

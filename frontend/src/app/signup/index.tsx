@@ -13,7 +13,7 @@ const REGISTER_USER = gql`
     }
 `;
 
-const SignupForm = () => {
+const SignupForm = ({onSuccess}:{onSuccess:() => void }) => {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [formData, setFormData] = useState({
         email: '',
