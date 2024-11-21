@@ -40,7 +40,7 @@ export default function Home() {
   };
 
   return (
-      <div className="bg-gradient-to-b from-sky-400 via-sky-300 to-sky-500 text-white" >
+      <div className="bg-gradient-to-b from-sky-400 via-sky-300 to-sky-500 text-white h-screen flex flex-col" >
         <Head>
           <title>Morning Light Planner</title>
           <meta

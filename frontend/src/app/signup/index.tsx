@@ -15,16 +15,23 @@ const REGISTER_USER = gql`
 
 const SignupForm = ({onSuccess}:{onSuccess:() => void }) => {
     const [passwordVisible, setPasswordVisible] = useState(false);
+    const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
+
     const [formData, setFormData] = useState({
+        profileName: '',
         email: '',
         password: '',
-        profileName: ''
+        confirmPassword: '',
     });
 
     const [registerUser, { data, loading, error }] = useMutation(REGISTER_USER);
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
+    };
+
+    const toggleConfirmPasswordVisibility = () => {
+        setConfirmPasswordVisible(!confirmPasswordVisible);
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,7 +44,7 @@ const SignupForm = ({onSuccess}:{onSuccess:() => void }) => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const { email, password, profileName } = formData;
+        const { profileName, email, password, confirmPassword  } = formData;
 
         // Basic validation
         if (!email || !password || !profileName) {
@@ -50,11 +57,22 @@ const SignupForm = ({onSuccess}:{onSuccess:() => void }) => {
             return;
         }
 
+        if (password !== confirmPassword) {
+            alert("Passwords do not match.");
+            return;
+        }
+
         try {
             const response = await registerUser({ variables: formData });
             console.log("Account created successfully", response);
-            alert("Account created successfully!");
-            setFormData({ email: '', password: '', profileName: '' }); // Clear form
+            //alert("Account created successfully!");
+            setFormData({
+                profileName: '',
+                email: '',
+                password: '',
+                confirmPassword: '',
+            }); // Clear form
+            onSuccess(); // Close the modal
         } catch (err) {
             console.error(err);
         }
@@ -129,7 +147,33 @@ const SignupForm = ({onSuccess}:{onSuccess:() => void }) => {
                         Use 8 or more characters with a mix of letters, numbers & symbols
                     </p>
                 </div>
-
+                <div>
+                    <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
+                        Confirm your password
+                    </label>
+                    <div className="mt-1 relative">
+                        <input
+                            id="confirmPassword"
+                            type={confirmPasswordVisible ? 'text' : 'password'}
+                            placeholder="Re-enter your password"
+                            value={formData.confirmPassword}
+                            onChange={handleChange}
+                            className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-orange-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm/6"
+                        />
+                        <button
+                            type="button"
+                            onClick={toggleConfirmPasswordVisibility}
+                            className="absolute inset-y-0 right-0 px-3 flex items-center text-gray-500 hover:text-gray-800"
+                            aria-label="Toggle password visibility"
+                            aria-pressed={confirmPasswordVisible}
+                        >
+                            {confirmPasswordVisible ? 'Hide' : 'Show'}
+                        </button>
+                    </div>
+                    <p className="text-sm text-gray-500 mt-1">
+                        Re-enter your password to confirm
+                    </p>
+                </div>
                 <button
                     type="submit"
                     className="w-full bg-yellow-600 text-white py-2 px-4 rounded-full shadow-sm hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
@@ -149,7 +193,7 @@ const SignupForm = ({onSuccess}:{onSuccess:() => void }) => {
                     </p>
                 )}
             </form>
-                 {error && (
+            {error && (
                 <pre className="text-sm text-red-500 mt-2">
                     {JSON.stringify(error, null, 2)}
                   </pre>
